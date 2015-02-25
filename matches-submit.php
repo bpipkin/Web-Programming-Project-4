@@ -25,32 +25,37 @@
        $person = array("name","gender","age","personality","os","minAge","maxAge");
        while (!(feof($myfile))) {
          $person = explode(",",fgets($myfile));
-         if ($person[0] == $_GET["name"])
+         if (strcmp($person[0],$_GET["name"]) == 0)
            break;
        }
        
-       rewind($myfile);
+       if (strcmp($person[0],$_GET["name"]) != 0) {
+         echo "We don't have your information!</br>Go back and sign up for a new account to find your matches <i>today</i>!</br>";
+       }
+       else {
+         rewind($myfile);
        
-       $possibleMatch = array("name","gender","age","personality","os","minAge","maxAge");
-       while (!(feof($myfile))) {
-         $line = fgets($myfile);
-         $possibleMatch = explode(",",$line);
-         if (strcmp($person[1],$possibleMatch[1]) == 0 || $possibleMatch[2] < $person[5] || $possibleMatch[2] > $person[6] || $person[2] < $possibleMatch[5] || $person[2] > $possibleMatch[6] || strcmp($person[4],$possibleMatch[4]) != 0)
-           continue;
-         $count = 0;
-         $index = 0;
-         while ($index < 4) {
-	   if (strcmp(substr($person[3],$index,1),substr($possibleMatch[3],$index,1)) == 0)
-	     $count = $count + 1;
-	   $index = $index + 1;
-	 }
-	 if ($count > 0) {
-           echo $possibleMatch[0] . "<br>";
-           echo "<strong>gender:</strong>" . $possibleMatch[1] . "<br>";
-           echo "<strong>age:</strong>" . $possibleMatch[2] . "<br>";
-           echo "<strong>type:</strong>" . $possibleMatch[3] . "<br>";
-           echo "<strong>OS:</strong>" . $possibleMatch[4] . "<br>";
-           echo "<br>";
+         $possibleMatch = array("name","gender","age","personality","os","minAge","maxAge");
+         while (!(feof($myfile))) {
+           $line = fgets($myfile);
+           $possibleMatch = explode(",",$line);
+           if (strcmp($person[1],$possibleMatch[1]) == 0 || $possibleMatch[2] < $person[5] || $possibleMatch[2] > $person[6] || $person[2] < $possibleMatch[5] || $person[2] > $possibleMatch[6] || strcmp($person[4],$possibleMatch[4]) != 0)
+             continue;
+           $count = 0;
+           $index = 0;
+           while ($index < 4) {
+	     if (strcmp(substr($person[3],$index,1),substr($possibleMatch[3],$index,1)) == 0)
+	       $count = $count + 1;
+	     $index = $index + 1;
+	   }
+	   if ($count > 0) {
+             echo $possibleMatch[0] . "<br>";
+             echo "<strong>gender:</strong>" . $possibleMatch[1] . "<br>";
+             echo "<strong>age:</strong>" . $possibleMatch[2] . "<br>";
+             echo "<strong>type:</strong>" . $possibleMatch[3] . "<br>";
+             echo "<strong>OS:</strong>" . $possibleMatch[4] . "<br>";
+             echo "<br>";
+           }
          }
        }
        fclose($myfile);
