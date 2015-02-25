@@ -24,7 +24,7 @@
 		
 		<!-- your HTML output follows -->
         
-		<form id="form" onSubmit="">
+		<form id="form" action = "signup-submit.php" method = "post" onSubmit="">
         <legend>New User Signup:</legend>
         	<fieldset>
             	<ul class="column"><strong>
