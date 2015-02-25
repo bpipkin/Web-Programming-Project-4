@@ -17,8 +17,7 @@
       where meek geeks meet
     </div>
     
-    
-    Matches for <?php echo $_GET["name"]; ?></br>
+    Matches for <?php echo $_GET["name"]; ?></br></br>
 
     <?php
        $myfile = fopen("singles.txt","r") or die("Unable to open file!");
@@ -41,16 +40,16 @@
          $count = 0;
          $index = 0;
          while ($index < 4) {
-	   if (strcmp(substr($person[3],index,1),substr($possibleMatch[3],index,1)) == 0)
+	   if (strcmp(substr($person[3],$index,1),substr($possibleMatch[3],$index,1)) == 0)
 	     $count = $count + 1;
 	   $index = $index + 1;
 	 }
 	 if ($count > 0) {
            echo $possibleMatch[0] . "<br>";
-           echo "gender:\t" . $possibleMatch[1] . "<br>";
-           echo "age:\t" . $possibleMatch[2] . "<br>";
-           echo "type:\t" . $possibleMatch[3] . "<br>";
-           echo "OS:\t" . $possibleMatch[4] . "<br>";
+           echo "<strong>gender:</strong>" . $possibleMatch[1] . "<br>";
+           echo "<strong>age:</strong>" . $possibleMatch[2] . "<br>";
+           echo "<strong>type:</strong>" . $possibleMatch[3] . "<br>";
+           echo "<strong>OS:</strong>" . $possibleMatch[4] . "<br>";
            echo "<br>";
          }
        }
