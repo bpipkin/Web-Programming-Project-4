@@ -25,30 +25,53 @@
 		<!-- your HTML output follows -->
         
 		<form id="form" action = "signup-submit.php" method = "post" onSubmit="">
-        <legend>New User Signup:</legend>
-        	<fieldset>
-            	<ul class="column"><strong>
-                	<li><label class="left">Name:</label><br/><br/></li>
-                	<li><label class="left">Gender:</label><br/><br/></li>
-                	<li><label class="left">Age:</label><br/><br/></li>
-                	<li><label class="left">Personality Type:</label><br/><br/></li>
-                	<li><label class="left">Favorite OS:</label><br/><br/></li>
-                	<li><label class="left">Seeking Age:</label><br/><br/></li>
-                    <li><input type="submit" value="Sign Up"></li>
-                </strong></ul>
-                <div>
-                	<input type="text" name="name" size="16"><br/><br/>
-                    <input type="radio" name="gender" value="male">Male <input type="radio" name="gender" value="female">Female<br/><br/>
-                    <input type="text" name="age" maxlength="2" size="6"><br/><br/>
-                    <input type="text" name="personality" maxlength="4" size="6">(<a href="http://www.humanmetrics.com/cgi-win/JTypes2.asp">Don't know your type?</a>)<br/><br/>
-                    <select name="os" value="windows">
-                    	<option value="windows">Windows</option>
-                    	<option value="macosx">Mac OS X</option>                     
-                    	<option value="linux">Linux</option>                     
-                    </select><br/><br/>
-                    <input type="text" name="min" maxlength="2" size="6"> to <input type="text" name="max" maxlength="2" size="6"><br/><br/>
+        
+        <fieldset>
+            <legend>New User Signup:</legend>
+
+                	<label>
+                    	<label class="left"><strong>Name:</strong></label>
+                    	<input type="text" name="name" size="16"><br/>
+                    </label>
+                    <br/>
+                	<label>
+                    	<label class="left"><strong>Gender:</strong></label>
+                    	<input type="radio" name="gender" value="male">Male
+                    </label>
+            
+                    <label>
+                    	<input type="radio" name="gender" value="female">Female<br/>
+                    </label><br/>
                     
-                </div>
+                    
+                	<label>
+                    	<label class="left"><strong>Age:</strong></label>
+                        <input type="text" name="age" maxlength="2" size="6"><br/>
+                    </label><br/>
+                    
+                    
+                	<label>
+                    	<label class="left"><strong>Personality Type:</strong></label>
+                        <label><input type="text" name="personality" maxlength="4" size="6">(<a href="http://www.humanmetrics.com/cgi-win/JTypes2.asp">Don't know your type?</a>)<br/></label>
+                    </label><br/>
+                    
+                	<label>
+                    	<label class="left"><strong>Favorite OS:</strong></label>
+                        <select name="os" value="windows">
+                            <option value="windows">Windows</option>
+                            <option value="macosx">Mac OS X</option>                     
+                            <option value="linux">Linux</option>                     
+	                    </select><br/>
+                    </label><br/>
+                	
+                    <label>
+                    	<label class="left"><strong>Seeking Age:</strong></label>
+ 	                    <label>
+                        	<input type="text" name="min" maxlength="2" size="6"> to 
+                        	<input type="text" name="max" maxlength="2" size="6"><br/>
+                        </label>
+                    </label><br/>
+                    <input type="submit" value="Sign Up">
             </fieldset>
         </form>
         

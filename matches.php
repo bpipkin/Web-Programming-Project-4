@@ -18,15 +18,15 @@
       	</div>
 
       	<form action="matches-submit.php" method="GET">
-      	<legend>Welcome:</legend>
       		<fieldset>
-      	    	<ul class="column"><strong>
-      	    		<li><label class="left">Name:</label><br/></li>
-	 	     	    <li><input type="submit" value="View My Matches"></li>
-				</strong></ul>
-				<div>
-      	    		 <input type = "text" name="name" maxlength="16"><br/>
-      	    	</div>
+            <legend>Welcome:</legend>
+      	    	<label>
+                	<label class="left"><strong>Name:</strong></label>
+	 	     		<input type = "text" name="name" maxlength="16"><br/>
+                </label>
+               	<br/>
+                <input type="submit" value="View My Matches">
+				
 			</fieldset>
         </form>
 
