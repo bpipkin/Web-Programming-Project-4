@@ -81,7 +81,7 @@ if($err == "") {
 if($err != ""){
     echo "<h1>Error! Invalid data.</h1>";
     echo $err;
-    echo "<p>Please go back and try again.</p>";
+    echo "<p>Please <a href=\"signup.php\">go back</a> and try again.</p>";
 }
 else{
     $entry = $name . ",";
