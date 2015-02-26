@@ -36,11 +36,15 @@
          rewind($myfile);
        
          $possibleMatch = array("name","gender","age","personality","os","minAge","maxAge");
+         $number = 0;
          while (!(feof($myfile))) {
            $line = fgets($myfile);
            $possibleMatch = explode(",",$line);
            if (strcmp($person[1],$possibleMatch[1]) == 0 || $possibleMatch[2] < $person[5] || $possibleMatch[2] > $person[6] || $person[2] < $possibleMatch[5] || $person[2] > $possibleMatch[6] || strcmp($person[4],$possibleMatch[4]) != 0)
              continue;
+  
+
+           $number = $number + 1;
            $count = 0;
            $index = 0;
            while ($index < 4) {
@@ -49,17 +53,30 @@
 	     $index = $index + 1;
 	   }
 	   if ($count > 0) {
-             echo $possibleMatch[0] . "<br>";
-             echo "<strong>gender:</strong>" . $possibleMatch[1] . "<br>";
-             echo "<strong>age:</strong>" . $possibleMatch[2] . "<br>";
-             echo "<strong>type:</strong>" . $possibleMatch[3] . "<br>";
-             echo "<strong>OS:</strong>" . $possibleMatch[4] . "<br>";
-             echo "<br>";
+             echo "<div class=\"match\">";
+             echo "<p>";
+             $imageString = "https://webster.cs.washington.edu/images/nerdluv/";
+             echo '<img id="image' . $number . '" src=' . $imageString . strtolower(str_replace(" ","_",$possibleMatch[0])) . '.jpg alt=photo width=200 height=200 onerror="imageMissing(' . $number . ')" />';
+             echo "".$possibleMatch[0]."";
+             echo "</p>";
+             echo "<ul>";
+             echo "<li><strong>gender:</strong>  ".$possibleMatch[1]."</li>";
+             echo "<li><strong>age:</strong>     ".$possibleMatch[2]."</li>";
+             echo" <li><strong>type:</strong>    ".$possibleMatch[3]."</li>";
+             echo "<li><strong>OS:</strong>      ".$possibleMatch[4]."</li>";
+             echo "</ul>";
+             echo "</div>";
            }
          }
        }
        fclose($myfile);
        ?>
+
+    <script>
+      function imageMissing(x) {
+        document.getElementById("image" + x).src = "https://webster.cs.washington.edu/images/nerdluv/user.jpg";
+      }
+    </script>
 
     <div>
       <p>
